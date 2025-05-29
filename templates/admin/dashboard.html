@@ -1,0 +1,85 @@
+{% extends "admin/layout.html" %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1 class="mb-4 fw-bold text-dark"><i class="bi bi-speedometer2 me-2"></i>Dashboard Admin</h1>
+
+    <div class="row g-4">
+        <!-- Total Buku -->
+        <div class="col-md-3">
+            <div class="card shadow-sm border-0 rounded-4 bg-white hover-shadow">
+                <div class="card-body d-flex align-items-center py-3">
+                    <div class="icon-circle bg-primary text-white me-3">
+                        <i class="bi bi-book-fill fs-3"></i>
+                    </div>
+                    <div>
+                        <p class="mb-1 text-muted fw-semibold">Total Buku</p>
+                        <h4 class="fw-bold text-dark">{{ total_buku }}</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Total Pengunjung -->
+        <div class="col-md-3">
+            <div class="card shadow-sm border-0 rounded-4 bg-white hover-shadow">
+                <div class="card-body d-flex align-items-center py-3">
+                    <div class="icon-circle bg-success text-white me-3">
+                        <i class="bi bi-people-fill fs-3"></i>
+                    </div>
+                    <div>
+                        <p class="mb-1 text-muted fw-semibold">Total Pengunjung</p>
+                        <h4 class="fw-bold text-dark">{{ total_pengunjung }}</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Total Pinjaman -->
+        <div class="col-md-3">
+            <div class="card shadow-sm border-0 rounded-4 bg-white hover-shadow">
+                <div class="card-body d-flex align-items-center py-3">
+                    <div class="icon-circle bg-warning text-dark me-3">
+                        <i class="bi bi-journal-check fs-3"></i>
+                    </div>
+                    <div>
+                        <p class="mb-1 text-muted fw-semibold">Total Pinjaman</p>
+                        <h4 class="fw-bold text-dark">{{ total_pinjaman }}</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Total Terlambat -->
+        <div class="col-md-3">
+            <div class="card shadow-sm border-0 rounded-4 bg-white hover-shadow">
+                <div class="card-body d-flex align-items-center py-3">
+                    <div class="icon-circle bg-danger text-white me-3">
+                        <i class="bi bi-exclamation-triangle-fill fs-3"></i>
+                    </div>
+                    <div>
+                        <p class="mb-1 text-muted fw-semibold">Terlambat Kembali</p>
+                        <h4 class="fw-bold text-dark">{{ total_terlambat }}</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.icon-circle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    font-size: 1.5rem;
+}
+.hover-shadow:hover {
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1) !important;
+    transition: 0.3s ease-in-out;
+}
+</style>
+{% endblock %}

@@ -1,0 +1,59 @@
+{% extends 'pengunjung/layout.html' %}
+{% block content %}
+<div class="card shadow-sm">
+    <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+        <h5 class="mb-0"><i class="bi bi-journal-bookmark-fill"></i> Daftar Buku</h5>
+        <a href="{{ url_for('pengunjung_dashboard') }}" class="btn btn-light btn-sm">
+            <i class="bi bi-arrow-left-circle"></i> Kembali ke Dashboard
+        </a>
+    </div>
+    <div class="card-body">
+        {% if buku %}
+        <div class="table-responsive">
+            <table class="table table-hover align-middle">
+                <thead class="table-light">
+                    <tr>
+                        <th>Judul</th>
+                        <th>Penulis</th>
+                        <th>Penerbit</th>
+                        <th>Tahun</th>
+                        <th>Stok</th>
+                        <th>Aksi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for b in buku %}
+                    <tr>
+                        <td>{{ b.judul }}</td>
+                        <td>{{ b.penulis }}</td>
+                        <td>{{ b.penerbit }}</td>
+                        <td>{{ b.tahun_terbit }}</td>
+                        <td>
+                            {% if b.stok > 0 %}
+                                <span class="badge bg-success">{{ b.stok }}</span>
+                            {% else %}
+                                <span class="badge bg-danger">Habis</span>
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if b.stok > 0 %}
+                            <a href="{{ url_for('pinjam_buku', buku_id=b.id) }}" class="btn btn-outline-primary btn-sm">
+                                <i class="bi bi-bookmark-check"></i> Pinjam
+                            </a>
+                            {% else %}
+                            <span class="text-muted"><i class="bi bi-x-circle"></i> Tidak Tersedia</span>
+                            {% endif %}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {% else %}
+        <div class="alert alert-warning">
+            <i class="bi bi-exclamation-circle"></i> Belum ada buku yang tersedia saat ini.
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

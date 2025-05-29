@@ -1,0 +1,37 @@
+{% extends 'pengunjung/layout.html' %}
+{% block content %}
+<style>
+  .list-group-item {
+    transition: background-color 0.3s ease;
+    border: none;
+    border-radius: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+  .list-group-item:hover {
+    background-color: #f0f8ff;
+  }
+</style>
+
+<div class="card shadow-sm rounded-4 p-4 bg-white">
+  <div class="d-flex align-items-center mb-3">
+    <i class="bi bi-shield-check text-primary fs-3 me-2"></i>
+    <h4 class="mb-0 text-primary">Syarat dan Ketentuan</h4>
+  </div>
+  <p class="text-muted">Dengan menggunakan layanan sistem informasi perpustakaan ini, Anda dianggap telah menyetujui hal-hal berikut:</p>
+
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item bg-light">
+      <i class="bi bi-x-circle-fill text-danger me-2"></i>
+      Tidak menyalahgunakan layanan peminjaman.
+    </li>
+    <li class="list-group-item bg-light">
+      <i class="bi bi-clock-fill text-warning me-2"></i>
+      Mengembalikan buku tepat waktu.
+    </li>
+    <li class="list-group-item bg-light">
+      <i class="bi bi-shield-lock-fill text-success me-2"></i>
+      Menjaga keamanan akun pribadi Anda.
+    </li>
+  </ul>
+</div>
+{% endblock %}

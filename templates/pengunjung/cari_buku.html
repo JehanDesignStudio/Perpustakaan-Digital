@@ -1,0 +1,52 @@
+{% extends 'pengunjung/layout.html' %}
+
+{% block title %}Cari Buku{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+  <h3 class="mb-4">Pencarian Buku</h3>
+
+  <form method="POST" class="row mb-4">
+    <div class="col-md-10">
+      <input type="text" name="keyword" class="form-control" placeholder="Cari judul, penulis, atau penerbit..." value="{{ keyword or '' }}">
+    </div>
+    <div class="col-md-2">
+      <button type="submit" class="btn btn-primary w-100">Cari</button>
+    </div>
+  </form>
+
+  {% if buku %}
+    <div class="table-responsive">
+      <table class="table table-bordered table-hover">
+        <thead class="table-light">
+          <tr>
+            <th>Judul</th>
+            <th>Penulis</th>
+            <th>Penerbit</th>
+            <th>Tahun</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for b in buku %}
+          <tr>
+            <td>{{ b[1] }}</td>
+            <td>{{ b[2] }}</td>
+            <td>{{ b[3] }}</td>
+            <td>{{ b[4] }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  {% else %}
+    <p class="text-muted">Tidak ada buku ditemukan.</p>
+  {% endif %}
+
+  <!-- Tombol Kembali -->
+  <div class="mt-4">
+    <a href="{{ url_for('pengunjung_dashboard') }}" class="btn btn-secondary">
+      ← Kembali ke Dashboard
+    </a>
+  </div>
+</div>
+{% endblock %}

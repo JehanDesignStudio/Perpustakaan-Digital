@@ -1,0 +1,27 @@
+{% extends 'pengunjung/layout.html' %}
+{% block content %}
+<div class="container mt-5 mb-5">
+  <div class="card shadow rounded-4">
+    <div class="card-header bg-secondary text-white py-3 rounded-top-4">
+      <h3 class="mb-0"><i class="bi bi-info-circle-fill me-2"></i>Tentang Perpustakaan Digital</h3>
+    </div>
+    <div class="card-body p-4">
+      <p>Sistem Informasi Perpustakaan Digital ini dibuat untuk memudahkan pengunjung dalam:</p>
+      <ul class="list-group list-group-flush mb-3">
+        <li class="list-group-item">Mencari dan melihat informasi buku</li>
+        <li class="list-group-item">Melakukan peminjaman dan pengembalian buku</li>
+        <li class="list-group-item">Melihat riwayat peminjaman</li>
+      </ul>
+      <p>
+        Aplikasi ini dikembangkan menggunakan <strong>Python Flask</strong> dan <strong>MySQL</strong>, serta dirancang untuk memberikan pengalaman yang mudah dan cepat bagi pengguna perpustakaan.
+      </p>
+      <p>
+        Jika Anda memiliki pertanyaan atau saran, silakan kunjungi halaman <a href="{{ url_for('pengunjung_bantuan') }}">Bantuan</a>.
+      </p>
+      <hr>
+      <p><strong>Versi Aplikasi:</strong> 1.0.0</p>
+      <p><strong>Dikembangkan oleh:</strong> Tim Pengembang Sistem Perpustakaan Digital</p>
+    </div>
+  </div>
+</div>
+{% endblock %}

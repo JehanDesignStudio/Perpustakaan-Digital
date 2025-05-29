@@ -1,0 +1,54 @@
+{% extends 'pengunjung/layout.html' %}
+{% block content %}
+<div class="container py-5">
+  <div class="card shadow-sm rounded-4 mx-auto" style="max-width: 900px; border: none;">
+    <div class="row g-0">
+      <div class="col-md-4 d-flex flex-column align-items-center bg-light rounded-start p-4">
+        <img src="{{ url_for('static', filename='uploads/' + user.foto_profil) if user.foto_profil else url_for('static', filename='img/user.png') }}" 
+             alt="Profil" class="img-fluid rounded-circle shadow-sm mb-3" style="width: 160px; height: 160px; object-fit: cover;">
+        <h4 class="fw-semibold mb-1 text-primary">{{ user.nama_lengkap }}</h4>
+        <span class="badge bg-success text-capitalize fs-6 px-3 py-2">{{ user.status }}</span>
+      </div>
+      <div class="col-md-8 p-5">
+        <h3 class="mb-4 border-bottom pb-2 text-secondary fw-bold">
+          <i class="bi bi-person-lines-fill me-2"></i>Informasi Profil
+        </h3>
+        <table class="table table-borderless mb-4" style="font-size: 1.05rem;">
+          <tbody>
+            <tr>
+              <th class="text-muted fw-semibold" style="width: 30%;">Username</th>
+              <td class="fw-semibold">{{ user.username }}</td>
+            </tr>
+            <tr>
+              <th class="text-muted fw-semibold">Email</th>
+              <td>{{ user.email }}</td>
+            </tr>
+            <tr>
+              <th class="text-muted fw-semibold">Telepon</th>
+              <td>{{ user.telepon or '-' }}</td>
+            </tr>
+            <tr>
+              <th class="text-muted fw-semibold">Tanggal Daftar</th>
+              <td>{{ user.tanggal_daftar.strftime('%d %B %Y') }}</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="mb-4">
+          <h6 class="text-muted mb-1">Total Pinjaman</h6>
+          <h2 class="fw-bold text-dark">{{ total_pinjaman }}</h2>
+        </div>
+        <div class="d-flex gap-3">
+          <a href="{{ url_for('pengunjung_edit_profil') }}" class="btn btn-outline-primary flex-grow-1 fw-semibold text-uppercase shadow-sm"
+             style="transition: all 0.3s ease;">
+            <i class="bi bi-pencil-fill me-2"></i>Edit Profil
+          </a>
+          <a href="{{ url_for('pengunjung_dashboard') }}" class="btn btn-secondary flex-grow-1 fw-semibold text-uppercase shadow-sm"
+             style="transition: all 0.3s ease;">
+            <i class="bi bi-arrow-left me-2"></i>Kembali
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,70 @@
+{% extends 'pengunjung/layout.html' %}
+
+{% block title %}Dashboard Pengunjung{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+  <div class="text-center mb-5">
+    <h1 class="fw-bold">Selamat Datang, {{ session['username'] }}!</h1>
+    <p class="lead text-muted">Ini adalah halaman dashboard kamu sebagai pengunjung perpustakaan.</p>
+  </div>
+
+  <div class="row g-4">
+
+    <!-- Card Cari Buku -->
+    <div class="col-md-6 col-lg-4">
+      <div class="card shadow-sm border-0 h-100">
+        <div class="card-body d-flex flex-column justify-content-between">
+          <div>
+            <div class="mb-3 text-primary" style="font-size: 3rem;">
+              <i class="bi bi-search"></i>
+            </div>
+            <h5 class="card-title fw-semibold">Cari Buku</h5>
+            <p class="card-text text-muted">Temukan buku yang kamu butuhkan dengan cepat dan mudah.</p>
+          </div>
+          <a href="{{ url_for('pengunjung_cari_buku') }}" class="btn btn-primary mt-3 align-self-start">
+            Cari Buku <i class="bi bi-arrow-right ms-2"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card Pinjam Buku -->
+    <div class="col-md-6 col-lg-4">
+      <div class="card shadow-sm border-0 h-100">
+        <div class="card-body d-flex flex-column justify-content-between">
+          <div>
+            <div class="mb-3 text-success" style="font-size: 3rem;">
+              <i class="bi bi-bookmark-plus"></i>
+            </div>
+            <h5 class="card-title fw-semibold">Pinjam Buku</h5>
+            <p class="card-text text-muted">Lihat buku yang tersedia dan ajukan peminjaman dengan mudah.</p>
+          </div>
+          <a href="{{ url_for('pengunjung_buku') }}" class="btn btn-success mt-3 align-self-start">
+            Pinjam Buku <i class="bi bi-arrow-right ms-2"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card Riwayat Peminjaman -->
+    <div class="col-md-6 col-lg-4">
+      <div class="card shadow-sm border-0 h-100">
+        <div class="card-body d-flex flex-column justify-content-between">
+          <div>
+            <div class="mb-3 text-info" style="font-size: 3rem;">
+              <i class="bi bi-clock-history"></i>
+            </div>
+            <h5 class="card-title fw-semibold">Riwayat</h5>
+            <p class="card-text text-muted">Cek riwayat peminjaman dan pengembalian buku kamu di sini.</p>
+          </div>
+          <a href="{{ url_for('pengunjung_riwayat') }}" class="btn btn-info text-white mt-3 align-self-start">
+            Lihat Riwayat <i class="bi bi-arrow-right ms-2"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+{% endblock %}

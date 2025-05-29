@@ -1,0 +1,13 @@
+<nav>
+  <ul class="pagination">
+    {% for p in range(1, total_pages + 1) %}
+    <li class="page-item {% if p == page %}active{% endif %}">
+      <a class="page-link" href="{{ url_for('pengunjung_buku_paginated', page=p) }}">{{ p }}</a>
+    </li>
+    {% endfor %}
+  </ul>
+</nav>
+<a href="{{ url_for('pengunjung_buku') }}" class="btn btn-secondary">Kembali ke Daftar Buku</a>
+
+
+
