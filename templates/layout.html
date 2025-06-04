@@ -1,42 +1,124 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>{% block title %}Perpustakaan Digital{% endblock %}</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <title>{% block title %}JDS (JehanDesainStudio){% endblock %}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <!-- Bootstrap 5 CDN -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
 
   <style>
     body {
-      background-color: #f8f9fa;
+      background:url('../static/background.png');
+      color: #222; /* hitam pekat */
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
     }
+
     .form-container {
-      max-width: 400px;
-      margin: 80px auto;
-      padding: 30px;
-      background-color: white;
-      border-radius: 10px;
-      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+      max-width: 420px;
+      width: 100%;
+      padding: 2.5rem 2rem;
+      background-color: #fff;
+      border: 1.5px solid #6c1e1e; /* bingkai halus marun */
+      border-radius: 1rem;
+      box-shadow: 0 8px 24px rgba(108, 30, 30, 0.15);
+      text-align: center;
+    }
+
+    h1, h2, h3, h4 {
+      color: #6c1e1e; /* marun */
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      letter-spacing: 0.05em;
+    }
+
+    /* Badge tematik marun dan emas */
+    .badge-uin-marun {
+      background-color: #6c1e1e;
+      color: #f9c842;
+      font-weight: 600;
+      padding: 0.5em 1.2em;
+      font-size: 0.9rem;
+      border-radius: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      display: inline-block;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 0 8px #f9c842aa;
+    }
+
+    /* Alert style */
+    .alert-warning {
+      background-color: #f9f1d6;
+      border: 1px solid #f9c842;
+      color: #6c1e1e;
+      font-weight: 600;
+      border-radius: 0.75rem;
+      box-shadow: 0 0 6px #f9c842bb;
+      margin-bottom: 1.5rem;
+    }
+
+    /* Tombol tematik marun + emas */
+    .btn-uin-marun {
+      background-color: #6c1e1e;
+      color: #f9c842;
+      border: 2px solid #f9c842;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      padding: 0.65rem 1.6rem;
+      border-radius: 2rem;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      width: 100%;
+      box-shadow: 0 4px 15px rgba(108, 30, 30, 0.3);
+    }
+
+    .btn-uin-marun:hover,
+    .btn-uin-marun:focus {
+      background-color: #f9c842;
+      color: #6c1e1e;
+      border-color: #6c1e1e;
+      box-shadow: 0 6px 20px rgba(249, 200, 66, 0.7);
+    }
+
+    /* Input focus styling */
+    .form-control:focus {
+      border-color: #6c1e1e;
+      box-shadow: 0 0 8px #f9c842aa;
+    }
+
+    /* Link styling */
+    a {
+      color: #6c1e1e;
+      font-weight: 600;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    a:hover {
+      color: #f9c842;
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
+  <div class="form-container">
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <div class="alert alert-warning text-center" role="alert">
+          {{ messages[0] }}
+        </div>
+      {% endif %}
+    {% endwith %}
 
-  <div class="container">
-    <div class="form-container">
-      {% with messages = get_flashed_messages() %}
-        {% if messages %}
-          <div class="alert alert-warning text-center">
-            {{ messages[0] }}
-          </div>
-        {% endif %}
-      {% endwith %}
-
-      {% block content %}{% endblock %}
-    </div>
+    <span class="badge-uin-marun">JDS (JehanDesainStudio)</span>
+    {% block content %}{% endblock %}
   </div>
-
 </body>
 </html>

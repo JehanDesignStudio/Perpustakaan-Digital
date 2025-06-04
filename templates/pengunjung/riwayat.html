@@ -1,15 +1,15 @@
 {% extends 'pengunjung/layout.html' %}
 
 {% block content %}
-<div class="card shadow-sm">
-    <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
-        <h5 class="mb-0"><i class="bi bi-clock-history"></i> Riwayat Peminjaman</h5>
+<div class="card shadow-sm" style="border: 2px solid var(--maroon); border-radius: 12px;">
+    <div class="card-header bg-maroon text-gold d-flex justify-content-between align-items-center" style="border-radius: 12px 12px 0 0;">
+        <h5 class="mb-0"><i class="bi bi-clock-history me-2"></i> Riwayat Peminjaman</h5>
     </div>
     <div class="card-body">
         {% if riwayat %}
         <div class="table-responsive">
             <table class="table table-hover align-middle">
-                <thead class="table-light">
+                <thead class="table-light" style="background-color: var(--gold); color: var(--maroon); font-weight: 600;">
                     <tr>
                         <th>Judul</th>
                         <th>Tanggal Pinjam</th>
@@ -26,20 +26,24 @@
                         <td>{{ p.tanggal_kembali or '-' }}</td>
                         <td>
                             {% if p.status == 'dipinjam' %}
-                                <span class="badge bg-warning text-dark"><i class="bi bi-hourglass-split"></i> Dipinjam</span>
+                                <span class="badge bg-warning text-dark">
+                                  <i class="bi bi-hourglass-split me-1"></i> Dipinjam
+                                </span>
                             {% elif p.status == 'dikembalikan' %}
-                                <span class="badge bg-success"><i class="bi bi-check-circle"></i> Dikembalikan</span>
+                                <span class="badge bg-success">
+                                  <i class="bi bi-check-circle me-1"></i> Dikembalikan
+                                </span>
                             {% else %}
                                 <span class="badge bg-secondary">{{ p.status }}</span>
                             {% endif %}
                         </td>
                         <td>
                             {% if p.status == 'dipinjam' %}
-                            <a href="{{ url_for('kembali_buku', pinjaman_id=p.id) }}" class="btn btn-outline-success btn-sm">
-                                <i class="bi bi-box-arrow-in-left"></i> Kembalikan
+                            <a href="{{ url_for('kembali_buku', pinjaman_id=p.id) }}" class="btn btn-outline-maroon btn-sm fw-semibold">
+                                <i class="bi bi-box-arrow-in-left me-1"></i> Kembalikan
                             </a>
                             {% else %}
-                            <span class="text-muted"><i class="bi bi-check2-circle"></i> Selesai</span>
+                            <span class="text-muted"><i class="bi bi-check2-circle me-1"></i> Selesai</span>
                             {% endif %}
                         </td>
                     </tr>
@@ -48,14 +52,15 @@
             </table>
         </div>
         {% else %}
-        <div class="alert alert-info">
-            <i class="bi bi-info-circle"></i> Anda belum memiliki riwayat peminjaman.
+        <div class="alert alert-info d-flex align-items-center" role="alert" style="border-left: 4px solid var(--maroon);">
+            <i class="bi bi-info-circle me-2 fs-4"></i>
+            <div>Anda belum memiliki riwayat peminjaman.</div>
         </div>
         {% endif %}
 
         <!-- Tombol Kembali -->
         <div class="mt-4">
-            <a href="{{ url_for('pengunjung_dashboard') }}" class="btn btn-secondary">
+            <a href="{{ url_for('pengunjung_dashboard') }}" class="btn btn-maroon fw-bold">
                 ← Kembali ke Dashboard
             </a>
         </div>

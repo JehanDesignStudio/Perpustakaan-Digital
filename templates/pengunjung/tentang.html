@@ -1,27 +1,131 @@
 {% extends 'pengunjung/layout.html' %}
 {% block content %}
-<div class="container mt-5 mb-5">
-  <div class="card shadow rounded-4">
-    <div class="card-header bg-secondary text-white py-3 rounded-top-4">
-      <h3 class="mb-0"><i class="bi bi-info-circle-fill me-2"></i>Tentang Perpustakaan Digital</h3>
-    </div>
-    <div class="card-body p-4">
-      <p>Sistem Informasi Perpustakaan Digital ini dibuat untuk memudahkan pengunjung dalam:</p>
-      <ul class="list-group list-group-flush mb-3">
-        <li class="list-group-item">Mencari dan melihat informasi buku</li>
-        <li class="list-group-item">Melakukan peminjaman dan pengembalian buku</li>
-        <li class="list-group-item">Melihat riwayat peminjaman</li>
-      </ul>
-      <p>
-        Aplikasi ini dikembangkan menggunakan <strong>Python Flask</strong> dan <strong>MySQL</strong>, serta dirancang untuk memberikan pengalaman yang mudah dan cepat bagi pengguna perpustakaan.
-      </p>
-      <p>
-        Jika Anda memiliki pertanyaan atau saran, silakan kunjungi halaman <a href="{{ url_for('pengunjung_bantuan') }}">Bantuan</a>.
-      </p>
-      <hr>
-      <p><strong>Versi Aplikasi:</strong> 1.0.0</p>
-      <p><strong>Dikembangkan oleh:</strong> Tim Pengembang Sistem Perpustakaan Digital</p>
-    </div>
-  </div>
+<style>
+  .card-custom {
+    border: 1px solid #6c1e1e; /* marun tua */
+    border-radius: 12px;
+    background-color: #fff;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  .card-header-custom {
+    background-color: #6c1e1e;
+    color: #f9c842; /* emas */
+    padding: 1rem 1.5rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    border-bottom: 2px solid #000;
+  }
+
+  .badge-maroon {
+    background-color: #f9c842;
+    color: #6c1e1e;
+    font-weight: 600;
+    font-size: 0.9rem;
+    padding: 0.3rem 0.6rem;
+    border-radius: 0.5rem;
+  }
+
+  .card-body-custom {
+    color: #333;
+    line-height: 1.7;
+    font-size: 1rem;
+    background-color: #fff;
+  }
+
+  .list-group-item-custom {
+    padding: 0.5rem 0;
+    font-weight: 500;
+    color: #222;
+    display: flex;
+    align-items: center;
+  }
+
+  .icon-maroon {
+    color: #6c1e1e;
+    margin-right: 10px;
+    font-size: 1.2rem;
+  }
+
+  .custom-hr {
+    border-top: 2px dashed #6c1e1e;
+    margin: 2rem 0 1.5rem;
+  }
+
+  .footer-text {
+    font-size: 0.95rem;
+    color: #444;
+  }
+
+  .btn-theme {
+    background-color: #6c1e1e;
+    color: #f9c842;
+    border: none;
+    padding: 0.5rem 1rem;
+    margin-top: 0.8rem;
+    font-weight: 600;
+    border-radius: 0.4rem;
+    text-decoration: none;
+  }
+
+  .btn-theme:hover {
+    background-color: #4a1515;
+    color: #fff8e1;
+  }
+</style>
+
+<div class="card-custom shadow-sm">
+  <header class="card-header-custom" role="banner">
+    <i class="bi bi-info-circle-fill me-2" aria-hidden="true"></i>
+    Tentang Perpustakaan Digital
+    <span class="badge-maroon ms-auto" aria-label="Versi Aplikasi">v1.0.0</span>
+  </header>
+
+  <section class="card-body-custom p-4" role="main">
+    <p>
+      Sistem Informasi Perpustakaan Digital ini dibuat untuk memudahkan pengunjung dalam:
+    </p>
+
+    <ul class="list-unstyled mt-3 mb-4">
+      <li class="list-group-item-custom">
+        <i class="bi bi-book icon-maroon" aria-hidden="true"></i>
+        Mencari dan melihat informasi buku
+      </li>
+      <li class="list-group-item-custom">
+        <i class="bi bi-journal-arrow-up icon-maroon" aria-hidden="true"></i>
+        Melakukan peminjaman dan pengembalian buku
+      </li>
+      <li class="list-group-item-custom">
+        <i class="bi bi-clock-history icon-maroon" aria-hidden="true"></i>
+        Melihat riwayat peminjaman
+      </li>
+    </ul>
+
+    <p><em>
+      Aplikasi ini dirancang dengan standar profesional tinggi yang mengutamakan keamanan data, kecepatan akses, dan kemudahan penggunaan.
+      Antarmuka modern dan intuitif kami hadirkan demi kenyamanan seluruh pembaca di seluruh dunia.
+    </em></p>
+
+    <p>
+      Dikembangkan menggunakan <strong>Python Flask</strong> dan <strong>MySQL</strong>, aplikasi ini siap menunjang kebutuhan perpustakaan berbasis digital secara cepat dan efisien.
+    </p>
+
+    <p>
+      Jika Anda memiliki pertanyaan atau saran, silakan kunjungi halaman 
+      <a href="#" role="link" aria-label="Halaman Bantuan Perpustakaan Digital">Bantuan</a>.
+    </p>
+
+    <hr class="custom-hr" />
+
+    <footer class="footer-text" role="contentinfo">
+      <p><strong>Dikembangkan oleh:</strong> JDS (Jehan Design Studio)</p>
+      <a href="#" class="btn-theme" role="button" aria-label="Hubungi Jehan Desain Studio">
+        <i class="bi bi-envelope-fill" aria-hidden="true"></i> Kontak Kami
+      </a>
+    </footer>
+  </section>
 </div>
 {% endblock %}

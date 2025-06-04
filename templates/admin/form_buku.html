@@ -2,43 +2,49 @@
 {% block content %}
 
 <div class="card shadow-sm">
-    <div class="card-body">
-        <h3 class="card-title mb-4"><i class="bi bi-book-fill"></i> {{ action }} Buku</h3>
+  <div class="card-body">
+    <h3 class="card-title mb-4">
+      <i class="bi bi-book-fill"></i> {{ action }} Buku
+    </h3>
 
-        <form method="POST">
-            <div class="mb-3">
-                <label for="judul" class="form-label">Judul Buku</label>
-                <input type="text" name="judul" id="judul" class="form-control" placeholder="Contoh: Laskar Pelangi"
-                       value="{{ buku.judul if buku else '' }}" required>
-            </div>
-            <div class="mb-3">
-                <label for="penulis" class="form-label">Penulis</label>
-                <input type="text" name="penulis" id="penulis" class="form-control" placeholder="Contoh: Andrea Hirata"
-                       value="{{ buku.penulis if buku else '' }}" required>
-            </div>
-            <div class="mb-3">
-                <label for="penerbit" class="form-label">Penerbit</label>
-                <input type="text" name="penerbit" id="penerbit" class="form-control" placeholder="Contoh: Bentang Pustaka"
-                       value="{{ buku.penerbit if buku else '' }}" required>
-            </div>
-            <div class="mb-3">
-                <label for="tahun_terbit" class="form-label">Tahun Terbit</label>
-                <input type="number" name="tahun_terbit" id="tahun_terbit" class="form-control" min="1000" max="9999"
-                       placeholder="Contoh: 2020" value="{{ buku.tahun_terbit if buku else '' }}" required>
-            </div>
-            <div class="mb-3">
-                <label for="stok" class="form-label">Stok Buku</label>
-                <input type="number" name="stok" id="stok" class="form-control" min="0"
-                       placeholder="Jumlah stok tersedia" value="{{ buku.stok if buku else '' }}" required>
-            </div>
+    <form method="POST" novalidate>
+      <div class="mb-3">
+        <label for="judul" class="form-label">Judul Buku</label>
+        <input type="text" name="judul" id="judul" class="form-control" placeholder="Contoh: Laskar Pelangi"
+               value="{{ buku.judul if buku else '' }}" required>
+      </div>
 
-            <div class="d-grid gap-2">
-                <button type="submit" class="btn btn-success">
-                    <i class="bi bi-save-fill"></i> {{ action }} Buku
-                </button>
-            </div>
-        </form>
-    </div>
+      <div class="mb-3">
+        <label for="penulis" class="form-label">Penulis</label>
+        <input type="text" name="penulis" id="penulis" class="form-control" placeholder="Contoh: Andrea Hirata"
+               value="{{ buku.penulis if buku else '' }}" required>
+      </div>
+
+      <div class="mb-3">
+        <label for="penerbit" class="form-label">Penerbit</label>
+        <input type="text" name="penerbit" id="penerbit" class="form-control" placeholder="Contoh: Bentang Pustaka"
+               value="{{ buku.penerbit if buku else '' }}" required>
+      </div>
+
+      <div class="mb-3">
+        <label for="tahun_terbit" class="form-label">Tahun Terbit</label>
+        <input type="number" name="tahun_terbit" id="tahun_terbit" class="form-control" min="1000" max="9999"
+               placeholder="Contoh: 2020" value="{{ buku.tahun_terbit if buku else '' }}" required>
+      </div>
+
+      <div class="mb-3">
+        <label for="stok" class="form-label">Stok Buku</label>
+        <input type="number" name="stok" id="stok" class="form-control" min="0" placeholder="Jumlah stok tersedia"
+               value="{{ buku.stok if buku else '' }}" required>
+      </div>
+
+      <div class="d-grid gap-2">
+        <button type="submit" class="btn btn-success">
+          <i class="bi bi-save-fill"></i> {{ action }} Buku
+        </button>
+      </div>
+    </form>
+  </div>
 </div>
 
 {% endblock %}

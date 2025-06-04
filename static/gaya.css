@@ -1,0 +1,132 @@
+/* Umum */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f5f9fb;
+  color: #222;
+  margin: 0;
+  padding: 0;
+}
+
+.logo {
+  height: 40px;
+  width: auto;
+  filter: drop-shadow(0 0 6px rgba(0, 255, 255, 0.5));
+}
+
+/* Navbar */
+.navbar {
+  background-color: #00b7b0 !important;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.navbar .navbar-brand {
+  color: #fff;
+  font-weight: bold;
+}
+
+.navbar .navbar-brand small {
+  font-size: 12px;
+  color: #e0f7f6;
+}
+
+.navbar .navbar-text {
+  color: #ffffff;
+  font-weight: 500;
+}
+
+.navbar .btn-outline-light {
+  border-color: #ffffff;
+  color: #ffffff;
+}
+
+.navbar .btn-outline-light:hover {
+  background-color: #ffffff;
+  color: #00b7b0;
+}
+
+/* Sidebar */
+.sidebar {
+  background-color: #e0f7f6;
+  width: 220px;
+  min-height: 100vh;
+  border-right: 1px solid #cde8e6;
+}
+
+.sidebar h6 {
+  color: #007f7b;
+  font-weight: bold;
+}
+
+.sidebar .nav-link {
+  color: #007f7b;
+  font-weight: 500;
+  border-radius: 5px;
+  transition: background-color 0.2s ease;
+}
+
+.sidebar .nav-link:hover {
+  background-color: #c0ebe8;
+}
+
+.sidebar .nav-link.active {
+  background-color: #00b7b0;
+  color: #ffffff;
+}
+
+/* Konten utama */
+.content {
+  background:url('../static/background.png');
+  border-radius: 10px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.03);
+}
+
+/* Tombol */
+.btn-primary {
+  background-color: #00b7b0;
+  border-color: #00a19b;
+}
+
+.btn-primary:hover {
+  background-color: #00918b;
+  border-color: #007f7b;
+}
+
+.btn-outline-primary {
+  color: #00b7b0;
+  border-color: #00b7b0;
+}
+
+.btn-outline-primary:hover {
+  background-color: #00b7b0;
+  color: #ffffff;
+}
+
+/* Kartu Dashboard */
+.card {
+  border: 1px solid #e0f2f1;
+  border-radius: 8px;
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 2px 10px rgba(0, 183, 176, 0.1);
+}
+
+.card .card-title {
+  color: #00b7b0;
+  font-weight: bold;
+}
+
+/* Nonaktifkan dark mode */
+body.dark-mode {
+  background-color: #f5f9fb !important;
+  color: #222 !important;
+}
+
+.dark-mode .navbar,
+.dark-mode .sidebar,
+.dark-mode .content {
+  background-color: inherit !important;
+  color: inherit !important;
+}

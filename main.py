@@ -65,7 +65,7 @@ def login(): # berfungsi untuk menangani login
             session['id'] = user['id'] # menyimpan session id user
             session['username'] = user['username'] # menyimpan session username user
             session['role'] = user['role'] # menyimpan session role user
-            return redirect(url_for(f"{user['role']}_dashboard")) # mengarahkan ke dashboard sesuai dengan role user
+            return redirect(url_for(f"{user['role']}_kata_sambutan")) # mengarahkan ke dashboard sesuai dengan role user
         flash('Username atau password salah') # menampilkan pesan error jika username atau password salah
     return render_template('login.html') # mengembalikan halaman login jika request method adalah GET atau jika login gagal
 
@@ -118,6 +118,13 @@ def admin_kata_sambutan():  # berfungsi untuk menampilkan halaman kata sambutan 
     if 'loggedin' in session and session['role'] == 'admin':    # berfungsi untuk memeriksa apakah user sudah login dan memiliki role admin
         return render_template('admin/kata_sambutan.html')  # mengembalikan halaman kata sambutan admin
     return redirect(url_for('login'))   # mengarahkan ke halaman login jika user belum login atau tidak memiliki role admin
+
+@app.route('/pengunjung/kata_sambutan')  # berfungsi untuk menampilkan halaman kata sambutan admin
+def pengunjung_kata_sambutan():  # berfungsi untuk menampilkan halaman kata sambutan admin
+    if 'loggedin' in session and session['role'] == 'pengunjung':    # berfungsi untuk memeriksa apakah user sudah login dan memiliki role admin
+        return render_template('pengunjung/kata_sambutan.html')  # mengembalikan halaman kata sambutan admin
+    return redirect(url_for('login'))   # mengarahkan ke halaman login jika user belum login atau tidak memiliki role admin
+
 
 @app.route('/admin/dashboard')  # berfungsi untuk menampilkan halaman dashboard admin
 def admin_dashboard():  # berfungsi untuk menampilkan halaman dashboard admin

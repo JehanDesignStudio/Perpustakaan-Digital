@@ -16,16 +16,18 @@
                 <input type="date" name="end" id="end" class="form-control" value="{{ end }}">
             </div>
             <div class="col-md-4 d-flex align-items-end">
-                <button type="submit" class="btn btn-primary w-100"><i class="bi bi-funnel-fill"></i> Filter</button>
+                <button type="submit" class="btn btn-primary w-100">
+                    <i class="bi bi-funnel-fill"></i> Filter
+                </button>
             </div>
         </form>
 
         <!-- Tombol Export -->
         <div class="mb-3">
-            <a href="{{ url_for('export_pdf', start=start, end=end) }}" class="btn btn-danger me-2">
+            <a href="{{ url_for('export_pdf', start=start, end=end) }}" class="btn btn-danger me-2" title="Export PDF">
                 <i class="bi bi-file-earmark-pdf-fill"></i> Export PDF
             </a>
-            <a href="{{ url_for('export_excel', start=start, end=end) }}" class="btn btn-success">
+            <a href="{{ url_for('export_excel', start=start, end=end) }}" class="btn btn-success" title="Export Excel">
                 <i class="bi bi-file-earmark-excel-fill"></i> Export Excel
             </a>
         </div>
@@ -43,25 +45,29 @@
                     </tr>
                 </thead>
                 <tbody>
-                    {% for p in laporan %}
-                    <tr>
-                        <td>{{ p.username }}</td>
-                        <td>{{ p.judul }}</td>
-                        <td class="text-center">{{ p.tanggal_pinjam.strftime('%d-%m-%Y') if p.tanggal_pinjam else '-' }}</td>
-                        <td class="text-center">
-                            {{ p.tanggal_kembali.strftime('%d-%m-%Y') if p.tanggal_kembali else '-' }}
-                        </td>
-                        <td class="text-center">
-                            {% if p.status == 'Dipinjam' %}
-                                <span class="badge bg-warning text-dark">Dipinjam</span>
-                            {% elif p.status == 'Dikembalikan' %}
-                                <span class="badge bg-success">Dikembalikan</span>
-                            {% else %}
-                                <span class="badge bg-secondary">{{ p.status }}</span>
-                            {% endif %}
-                        </td>
-                    </tr>
-                    {% endfor %}
+                    {% if laporan %}
+                        {% for p in laporan %}
+                        <tr>
+                            <td>{{ p.username }}</td>
+                            <td>{{ p.judul }}</td>
+                            <td class="text-center">{{ p.tanggal_pinjam.strftime('%d-%m-%Y') if p.tanggal_pinjam else '-' }}</td>
+                            <td class="text-center">{{ p.tanggal_kembali.strftime('%d-%m-%Y') if p.tanggal_kembali else '-' }}</td>
+                            <td class="text-center">
+                                {% if p.status == 'Dipinjam' %}
+                                    <span class="badge bg-warning text-dark">Dipinjam</span>
+                                {% elif p.status == 'Dikembalikan' %}
+                                    <span class="badge bg-success">Dikembalikan</span>
+                                {% else %}
+                                    <span class="badge bg-secondary">{{ p.status }}</span>
+                                {% endif %}
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    {% else %}
+                        <tr>
+                            <td colspan="5" class="text-center fst-italic text-muted">Tidak ada data laporan untuk periode ini.</td>
+                        </tr>
+                    {% endif %}
                 </tbody>
             </table>
         </div>

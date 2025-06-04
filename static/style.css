@@ -1,0 +1,354 @@
+/* ===================== WARNA DASAR UIN IB ===================== */
+:root {
+  --maroon: #800000;        /* Merah marun */
+  --gold: #BD9825;          /* Kuning emas */
+  --black: #000000;         /* Hitam */
+  --white: #ffffff;
+  --gray-light: #f5f5f5;    /* Netral */
+}
+
+/* ===================== RESET / DASAR ===================== */
+body, html {
+  margin: 0; 
+  padding: 0; 
+  height: 100%;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: url('../static/background-pengunjung.png') no-repeat center center fixed;
+  background-size: cover;
+  color: var(--black);
+}
+
+
+/* ===================== NAVBAR ===================== */
+.navbar {
+  background-color: var(--maroon) !important;
+  color: var(--white);
+  padding: 1rem 2rem;
+}
+
+.navbar .navbar-brand,
+.navbar .nav-link {
+  color: var(--white) !important;
+  cursor: pointer;
+}
+
+.navbar .nav-link:hover {
+  color: var(--gold) !important;
+}
+
+/* ===================== TOMBOL TOGGLE LOGO ===================== */
+.btn-toggle-logo {
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-toggle-logo img {
+  height: 40px;
+  width: auto;
+  display: block;
+  user-select: none;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.btn-toggle-logo:hover {
+  opacity: 0.8;
+}
+
+@media (max-width: 576px) {
+  .btn-toggle-logo img {
+    height: 30px;
+  }
+}
+
+/* ===================== LAYOUT UTAMA ===================== */
+.main {
+  display: flex;
+  height: calc(100vh - 56px); /* navbar 56px */
+  overflow: hidden;
+}
+
+/* ===================== SIDEBAR ===================== */
+.sidebar {
+  width: 220px;
+  background-color: var(--maroon);
+  color: var(--white);
+  padding: 1.5rem;
+  box-sizing: border-box;
+  overflow-y: auto;
+  transition: width 0.3s ease, padding 0.3s ease;
+  flex-shrink: 0;
+}
+
+.sidebar.collapsed {
+  width: 60px;
+  padding: 1.5rem 0.5rem;
+  overflow: hidden;
+}
+
+.sidebar h5 {
+  font-weight: 700;
+  font-size: 1.25rem;
+  margin-bottom: 1.75rem;
+  color: var(--gold);
+}
+
+.sidebar ul.nav {
+  padding-left: 0;
+  list-style: none;
+}
+
+.sidebar ul.nav .nav-link {
+  color: var(--white);
+  font-weight: 600;
+  padding: 0.55rem 1rem;
+  border-radius: 0.5rem;
+  font-size: 1.05rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  transition: background-color 0.25s ease, color 0.25s ease;
+  cursor: pointer;
+}
+
+.sidebar ul.nav .nav-link:hover,
+.sidebar ul.nav .nav-link.active {
+  background-color: var(--gold);
+  color: var(--black);
+}
+
+/* Icon di sidebar */
+.sidebar ul.nav .nav-link i {
+  font-size: 1.25rem;
+}
+
+/* ===================== KONTEN ===================== */
+.content {
+  flex: 1;
+  padding: 2.5rem 3rem;
+  background: transparent; /* atau hapus jika tidak ingin override background body */
+  overflow-y: auto;
+  border-radius: 0 1rem 1rem 0;
+  box-sizing: border-box;
+}
+
+.content.expanded {
+  margin-left: 60px;
+}
+
+/* ===================== RESPONSIVE ===================== */
+@media (max-width: 992px) {
+  .sidebar {
+    position: absolute;
+    z-index: 999;
+    height: 100vh;
+  }
+
+  .sidebar.collapsed {
+    width: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+
+  .content {
+    padding: 2rem 1.5rem;
+    margin-left: 0 !important;
+  }
+}
+
+/* ===================== KOMPONEN TAMBAHAN ===================== */
+/* Kartu */
+.card {
+  border: 2px solid var(--maroon);
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 8px rgba(128, 0, 0, 0.2);
+  background-color: var(--white);
+}
+
+/* Header kartu */
+.card-header {
+  background-color: var(--maroon) !important;
+  color: var(--white) !important;
+  font-weight: 700;
+  font-size: 1.25rem;
+  border-bottom: 3px solid var(--gold);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Tombol kembali */
+.card-header a.btn-light {
+  color: var(--maroon);
+  border: 1.5px solid var(--maroon);
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.card-header a.btn-light:hover {
+  background-color: var(--gold);
+  color: var(--black);
+  border-color: var(--gold);
+}
+
+/* Tabel */
+.table {
+  border-collapse: separate;
+  border-spacing: 0 0.75rem;
+}
+
+.table thead tr {
+  background-color: var(--gold);
+  color: var(--black);
+  font-weight: 700;
+  border-radius: 0.5rem;
+}
+
+.table thead th {
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+  padding: 0.75rem 1rem;
+  text-align: left;
+}
+
+.table tbody tr {
+  background-color: var(--white);
+  box-shadow: 0 2px 5px rgba(128, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+}
+
+.table tbody tr:hover {
+  background-color: var(--gold);
+  color: var(--black);
+  cursor: pointer;
+}
+
+.table tbody td {
+  padding: 0.7rem 1rem;
+  vertical-align: middle;
+}
+
+/* Badge */
+.badge.bg-success {
+  background-color: var(--maroon);
+  color: var(--white);
+  font-weight: 600;
+  padding: 0.4em 0.75em;
+  border-radius: 0.4rem;
+}
+
+.badge.bg-danger {
+  background-color: var(--black);
+  color: var(--gold);
+  font-weight: 600;
+  padding: 0.4em 0.75em;
+  border-radius: 0.4rem;
+}
+
+/* Flash & Alert */
+.alert-info,
+.alert-warning {
+  background-color: var(--gold);
+  color: var(--black);
+  font-weight: 600;
+  border-radius: 0.5rem;
+  padding: 1rem 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+}
+
+.alert-info {
+  border-color: var(--maroon);
+}
+
+.alert-warning {
+  border: 2px solid var(--maroon);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Tombol */
+.btn-outline-primary {
+  color: var(--maroon);
+  border-color: var(--maroon);
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-outline-primary:hover {
+  background-color: var(--gold);
+  border-color: var(--gold);
+  color: var(--black);
+}
+
+.btn-maroon {
+  background-color: var(--maroon);
+  color: var(--gold);
+  font-weight: 700;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+.btn-maroon:hover {
+  background-color: #5a0000;
+  color: var(--gold);
+}
+
+.btn-outline-maroon {
+  color: var(--maroon);
+  border: 2px solid var(--maroon);
+  font-weight: 600;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-outline-maroon:hover {
+  background-color: var(--maroon);
+  color: var(--gold);
+}
+
+.btn-gold {
+  background-color: var(--gold);
+  color: var(--maroon);
+  font-weight: 700;
+  border: none;
+}
+
+.btn-gold:hover {
+  background-color: #a17e14;
+  color: var(--maroon);
+}
+
+.btn-black {
+  background-color: var(--black);
+  color: var(--gold);
+  font-weight: 700;
+  border: none;
+}
+
+.btn-black:hover {
+  background-color: #222222;
+  color: var(--gold);
+}
+
+/* ===================== UTILITAS ===================== */
+.text-maroon {
+  color: var(--maroon) !important;
+}
+
+.text-gold {
+  color: var(--gold) !important;
+}
+
+.text-black {
+  color: var(--black) !important;
+}
+
+.border-maroon {
+  border-color: var(--maroon) !important;
+}

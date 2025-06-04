@@ -1,49 +1,113 @@
 {% extends 'pengunjung/layout.html' %}
+
 {% block content %}
+<style>
+  .profil-card {
+    max-width: 900px;
+    border: 1px solid #6c1e1e; /* bingkai marun */
+    border-radius: 1rem;
+    background-color: #fff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  }
+
+  .profil-sidebar {
+    background-color: #fdf5f5;
+    border-right: 1px solid #eee;
+  }
+
+  .profil-img {
+    width: 160px;
+    height: 160px;
+    object-fit: cover;
+    border: 4px solid #6c1e1e;
+  }
+
+  .profil-nama {
+    color: #6c1e1e;
+    font-weight: 600;
+  }
+
+  .badge-status {
+    background-color: #f9c842;
+    color: #000;
+    font-weight: 600;
+  }
+
+  .judul-profil {
+    color: #6c1e1e;
+    border-bottom: 2px solid #6c1e1e;
+    padding-bottom: 0.5rem;
+    font-weight: bold;
+  }
+
+  .table th {
+    width: 40%;
+    color: #555;
+  }
+
+  .table td {
+    color: #111;
+  }
+
+  .btn-maroon {
+    background-color: #6c1e1e;
+    color: #fff;
+    border: none;
+  }
+
+  .btn-maroon:hover {
+    background-color: #591717;
+  }
+
+  .btn-outline-maroon {
+    border: 2px solid #6c1e1e;
+    color: #6c1e1e;
+  }
+
+  .btn-outline-maroon:hover {
+    background-color: #6c1e1e;
+    color: #fff;
+  }
+</style>
+
 <div class="container py-5">
-  <div class="card shadow-sm rounded-4 mx-auto" style="max-width: 900px; border: none;">
+  <div class="card profil-card mx-auto">
     <div class="row g-0">
-      <div class="col-md-4 d-flex flex-column align-items-center bg-light rounded-start p-4">
+      <div class="col-md-4 d-flex flex-column align-items-center justify-content-center profil-sidebar rounded-start p-4">
         <img src="{{ url_for('static', filename='uploads/' + user.foto_profil) if user.foto_profil else url_for('static', filename='img/user.png') }}" 
-             alt="Profil" class="img-fluid rounded-circle shadow-sm mb-3" style="width: 160px; height: 160px; object-fit: cover;">
-        <h4 class="fw-semibold mb-1 text-primary">{{ user.nama_lengkap }}</h4>
-        <span class="badge bg-success text-capitalize fs-6 px-3 py-2">{{ user.status }}</span>
+             alt="Profil" class="img-fluid rounded-circle profil-img shadow-sm mb-3">
+        <h4 class="profil-nama mb-1">{{ user.nama_lengkap }}</h4>
+        <span class="badge badge-status text-capitalize fs-6 px-3 py-2">{{ user.status }}</span>
       </div>
       <div class="col-md-8 p-5">
-        <h3 class="mb-4 border-bottom pb-2 text-secondary fw-bold">
+        <h3 class="judul-profil mb-4">
           <i class="bi bi-person-lines-fill me-2"></i>Informasi Profil
         </h3>
         <table class="table table-borderless mb-4" style="font-size: 1.05rem;">
           <tbody>
             <tr>
-              <th class="text-muted fw-semibold" style="width: 30%;">Username</th>
+              <th>Username</th>
               <td class="fw-semibold">{{ user.username }}</td>
             </tr>
             <tr>
-              <th class="text-muted fw-semibold">Email</th>
+              <th>Email</th>
               <td>{{ user.email }}</td>
             </tr>
             <tr>
-              <th class="text-muted fw-semibold">Telepon</th>
+              <th>Telepon</th>
               <td>{{ user.telepon or '-' }}</td>
             </tr>
             <tr>
-              <th class="text-muted fw-semibold">Tanggal Daftar</th>
+              <th>Tanggal Daftar</th>
               <td>{{ user.tanggal_daftar.strftime('%d %B %Y') }}</td>
             </tr>
           </tbody>
         </table>
-        <div class="mb-4">
-          <h6 class="text-muted mb-1">Total Pinjaman</h6>
-          <h2 class="fw-bold text-dark">{{ total_pinjaman }}</h2>
-        </div>
         <div class="d-flex gap-3">
-          <a href="{{ url_for('pengunjung_edit_profil') }}" class="btn btn-outline-primary flex-grow-1 fw-semibold text-uppercase shadow-sm"
-             style="transition: all 0.3s ease;">
+          <a href="{{ url_for('pengunjung_edit_profil') }}" class="btn btn-outline-maroon flex-grow-1 fw-semibold text-uppercase shadow-sm">
             <i class="bi bi-pencil-fill me-2"></i>Edit Profil
           </a>
-          <a href="{{ url_for('pengunjung_dashboard') }}" class="btn btn-secondary flex-grow-1 fw-semibold text-uppercase shadow-sm"
-             style="transition: all 0.3s ease;">
+          <a href="{{ url_for('pengunjung_dashboard') }}" class="btn btn-secondary flex-grow-1 fw-semibold text-uppercase shadow-sm">
             <i class="bi bi-arrow-left me-2"></i>Kembali
           </a>
         </div>

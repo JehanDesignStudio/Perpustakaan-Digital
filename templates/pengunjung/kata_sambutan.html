@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kata Sambutan - Perpustakaan Digital UIN IB Padang</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
+  <style>
+    body {
+      background-color: #3b0000; /* Hitam gelap */
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      color: #f0e6b8; /* Emas muda untuk teks */
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+    }
+
+    .card-welcome {
+      background-color: #fff;
+      color: #3b0000; /* Marun gelap untuk teks utama */
+      border: 1.5px solid #d4af37; /* Bingkai emas halus */
+      border-radius: 1rem;
+      max-width: 900px;
+      width: 100%;
+      padding: 3rem 3.5rem;
+      box-shadow: 0 8px 24px rgba(212, 175, 55, 0.3);
+      text-align: center;
+    }
+
+    .card-welcome img {
+      height: 80px;
+      margin-bottom: 1.5rem;
+      filter: drop-shadow(1px 1px 1px rgba(0,0,0,0.2));
+    }
+
+    h1 {
+      font-weight: 700;
+      color: #800000; /* Marun khas */
+      margin-bottom: 1rem;
+      font-size: 2.5rem;
+    }
+
+    p {
+      font-size: 1.15rem;
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+
+    .quote {
+      font-style: italic;
+      color: #7a5f00; /* Emas gelap */
+      border-left: 4px solid #d4af37;
+      padding-left: 1rem;
+      margin: 2rem 0;
+      font-size: 1.1rem;
+      font-weight: 500;
+      text-align: left;
+    }
+
+    .btn-thematic {
+      background-color: #800000;
+      border: 2px solid #d4af37;
+      color: #d4af37;
+      font-weight: 600;
+      font-size: 1.1rem;
+      padding: 0.65rem 1.8rem;
+      border-radius: 10px;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: 2rem;
+    }
+
+    .btn-thematic:hover,
+    .btn-thematic:focus {
+      background-color: #d4af37;
+      color: #800000;
+      text-decoration: none;
+      border-color: #800000;
+    }
+
+    footer {
+      margin-top: 2rem;
+      color: #d4af37;
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+  </style>
+</head>
+<body>
+  <div class="card-welcome" role="main" aria-label="Kata Sambutan Perpustakaan Digital">
+    <img src="https://cdn-icons-png.flaticon.com/512/1048/1048953.png" alt="Logo Perpustakaan UIN IB Padang" />
+    <h1><i class="bi bi-book-fill me-2"></i>Selamat Datang Pengguna</h1>
+    <p>
+      Selamat datang di <strong>Sistem Informasi Perpustakaan Digital created JDS (jehan Desain Studio)</strong>.<br />
+      Kami hadir untuk mendukung kemudahan akses informasi, pengelolaan koleksi, serta layanan perpustakaan secara efisien dan modern.
+    </p>
+    <div class="quote" aria-label="Kutipan">
+      “Membaca adalah jendela dunia. Perpustakaan adalah gerbangnya.”
+    </div>
+    <p>
+      Kami berharap sistem ini memberikan pengalaman terbaik bagi seluruh pengguna. Selamat menggunakan!
+    </p>
+    <a href="{{ url_for('pengunjung_dashboard') }}" class="btn-thematic" role="button" aria-label="Masuk ke Dashboard">
+      <i class="bi bi-arrow-right-circle-fill"></i> Masuk ke Dashboard
+    </a>
+    <footer>&copy; 2025 Sistem Informasi Perpustakaan Digital created JDS (jehan Desain Studio)</footer>
+  </div>
+</body>
+</html>

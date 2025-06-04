@@ -1,37 +1,123 @@
 {% extends 'pengunjung/layout.html' %}
+
 {% block content %}
 <style>
-  .list-group-item {
-    transition: background-color 0.3s ease;
-    border: none;
-    border-radius: 0.5rem;
-    margin-bottom: 0.5rem;
+  .card-custom {
+    max-width: 700px;
+    margin: 60px auto;
+    border: 1px solid #6c1e1e; /* bingkai halus marun */
+    border-radius: 1rem;
+    background-color: #ffffff;
+    box-shadow: 0 4px 12px rgba(108, 30, 30, 0.15);
   }
-  .list-group-item:hover {
-    background-color: #f0f8ff;
+
+  .card-header-custom {
+    display: flex;
+    align-items: center;
+    padding: 1rem 1.5rem 0.5rem;
+    border-bottom: 2px solid #6c1e1e;
+  }
+
+  .card-header-custom i {
+    font-size: 1.8rem;
+    color: #6c1e1e; /* marun */
+    margin-right: 12px;
+  }
+
+  .card-header-custom h4 {
+    color: #6c1e1e;
+    font-weight: 700;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    letter-spacing: 0.04em;
+  }
+
+  .card-body-custom {
+    padding: 1rem 1.5rem 1.5rem;
+    color: #222; /* hitam pekat untuk teks utama */
+    font-size: 1.05rem;
+    line-height: 1.65;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+
+  .list-group-item-custom {
+    background-color: #fff6e5; /* very light emas */
+    border: 1px solid #f9c842; /* garis emas */
+    border-radius: 0.6rem;
+    margin-bottom: 0.7rem;
+    padding: 0.75rem 1.2rem;
+    transition: background-color 0.3s ease;
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+    color: #4a2a2a; /* marun gelap */
+  }
+
+  .list-group-item-custom:hover {
+    background-color: #f9f1d6; /* sedikit highlight emas */
+  }
+
+  .icon-maroon {
+    font-size: 1.3rem;
+    margin-right: 0.85rem;
+    flex-shrink: 0;
+  }
+
+  .text-danger {
+    color: #b00020 !important; /* merah gelap */
+  }
+
+  .text-warning {
+    color: #f9c842 !important; /* emas */
+  }
+
+  .text-success {
+    color: #218739 !important; /* hijau */
+  }
+
+  /* Jika ingin tombol marun dengan aksen emas (opsional) */
+  .btn-marun {
+    background-color: #6c1e1e;
+    color: #f9c842;
+    border: 2px solid #f9c842;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  .btn-marun:hover {
+    background-color: #f9c842;
+    color: #6c1e1e;
+    border-color: #6c1e1e;
   }
 </style>
 
-<div class="card shadow-sm rounded-4 p-4 bg-white">
-  <div class="d-flex align-items-center mb-3">
-    <i class="bi bi-shield-check text-primary fs-3 me-2"></i>
-    <h4 class="mb-0 text-primary">Syarat dan Ketentuan</h4>
+<div class="card-custom">
+  <div class="card-header-custom">
+    <i class="bi bi-shield-check" aria-hidden="true"></i>
+    <h4 class="mb-0">Syarat dan Ketentuan</h4>
   </div>
-  <p class="text-muted">Dengan menggunakan layanan sistem informasi perpustakaan ini, Anda dianggap telah menyetujui hal-hal berikut:</p>
 
-  <ul class="list-group list-group-flush">
-    <li class="list-group-item bg-light">
-      <i class="bi bi-x-circle-fill text-danger me-2"></i>
-      Tidak menyalahgunakan layanan peminjaman.
-    </li>
-    <li class="list-group-item bg-light">
-      <i class="bi bi-clock-fill text-warning me-2"></i>
-      Mengembalikan buku tepat waktu.
-    </li>
-    <li class="list-group-item bg-light">
-      <i class="bi bi-shield-lock-fill text-success me-2"></i>
-      Menjaga keamanan akun pribadi Anda.
-    </li>
-  </ul>
+  <div class="card-body-custom">
+    <p>
+      Dengan menggunakan layanan Sistem Informasi Perpustakaan Digital UIN Imam Bonjol Padang, Anda dianggap telah menyetujui ketentuan berikut:
+    </p>
+
+    <ul class="list-unstyled mt-3">
+      <li class="list-group-item-custom">
+        <i class="bi bi-x-circle-fill text-danger icon-maroon" aria-hidden="true"></i>
+        Tidak menyalahgunakan layanan peminjaman buku.
+      </li>
+      <li class="list-group-item-custom">
+        <i class="bi bi-clock-fill text-warning icon-maroon" aria-hidden="true"></i>
+        Mengembalikan buku sesuai waktu yang telah ditentukan.
+      </li>
+      <li class="list-group-item-custom">
+        <i class="bi bi-shield-lock-fill text-success icon-maroon" aria-hidden="true"></i>
+        Menjaga keamanan akun dan data pribadi Anda.
+      </li>
+    </ul>
+  </div>
 </div>
 {% endblock %}

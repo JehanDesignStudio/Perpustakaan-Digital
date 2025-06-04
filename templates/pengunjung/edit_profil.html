@@ -1,34 +1,36 @@
 {% extends 'pengunjung/layout.html' %}
 {% block content %}
-<div class="card shadow rounded-4 p-4 mx-auto" style="max-width: 600px;">
-  <h3 class="mb-4">Edit Profil</h3>
+<div class="card shadow rounded-4 p-4 mx-auto" style="max-width: 600px; border: 2px solid var(--maroon);">
+  <h3 class="mb-4 text-maroon"><i class="bi bi-person-circle"></i> Edit Profil</h3>
 
   <form method="POST" action="{{ url_for('pengunjung_edit_profil') }}" enctype="multipart/form-data">
     <div class="mb-3 text-center">
-      <img src="{{ url_for('static', filename='uploads/' ~ (user.foto_profil or 'user.png')) }}" alt="Foto Profil" class="img-thumbnail rounded-circle mb-3" style="width: 150px; height: 150px; object-fit: cover;">
+      <img src="{{ url_for('static', filename='uploads/' ~ (user.foto_profil or 'user.png')) }}" alt="Foto Profil" class="img-thumbnail rounded-circle mb-3" style="width: 150px; height: 150px; object-fit: cover; border: 3px solid var(--gold);">
     </div>
 
     <div class="mb-3">
-      <label for="foto_profil" class="form-label">Upload Foto Profil</label>
-      <input type="file" class="form-control" id="foto_profil" name="foto_profil" accept="image/*">
+      <label for="foto_profil" class="form-label text-maroon fw-semibold">Upload Foto Profil</label>
+      <input type="file" class="form-control border-maroon" id="foto_profil" name="foto_profil" accept="image/*">
       <small class="form-text text-muted">Format file: JPG, PNG. Maksimal ukuran 2MB.</small>
     </div>
 
     <div class="mb-3">
-      <label for="nama_lengkap" class="form-label">Nama Lengkap</label>
-      <input type="text" class="form-control" id="nama_lengkap" name="nama_lengkap" value="{{ user.nama_lengkap }}" required>
-    </div>
-    <div class="mb-3">
-      <label for="email" class="form-label">Email</label>
-      <input type="email" class="form-control" id="email" name="email" value="{{ user.email }}" required>
-    </div>
-    <div class="mb-3">
-      <label for="telepon" class="form-label">Telepon</label>
-      <input type="tel" class="form-control" id="telepon" name="telepon" value="{{ user.telepon or '' }}">
+      <label for="nama_lengkap" class="form-label text-maroon fw-semibold">Nama Lengkap</label>
+      <input type="text" class="form-control border-maroon" id="nama_lengkap" name="nama_lengkap" value="{{ user.nama_lengkap }}" required>
     </div>
 
-    <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
-    <a href="{{ url_for('pengunjung_profil') }}" class="btn btn-secondary ms-2">Batal</a>
+    <div class="mb-3">
+      <label for="email" class="form-label text-maroon fw-semibold">Email</label>
+      <input type="email" class="form-control border-maroon" id="email" name="email" value="{{ user.email }}" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="telepon" class="form-label text-maroon fw-semibold">Telepon</label>
+      <input type="tel" class="form-control border-maroon" id="telepon" name="telepon" value="{{ user.telepon or '' }}">
+    </div>
+
+    <button type="submit" class="btn btn-maroon text-gold fw-bold">Simpan Perubahan</button>
+    <a href="{{ url_for('pengunjung_profil') }}" class="btn btn-outline-maroon ms-2">Batal</a>
   </form>
 </div>
 {% endblock %}
